@@ -9,6 +9,10 @@ const CommentsPanel = ({ post, onCommentAdd, onReplyAdd, onClose }) => {
   const [replyingToIndex, setReplyingToIndex] = useState(null);
   const [likedComments, setLikedComments] = useState({});
 
+  if (post) {
+    const [boom, setBoom] = useState(0); 
+  }
+
   const handleAddComment = () => {
     if (!commentText.trim()) return;
     const newComment = { user: "You", text: commentText, replies: [] };
@@ -91,7 +95,6 @@ const CommentsPanel = ({ post, onCommentAdd, onReplyAdd, onClose }) => {
                           likedComments[`comment-${i}`] ? "fill-red-500 text-red-500" : ""
                         }`}
                       />
-                      {/* <span className="text-[10px] leading-[12px]">Like</span> */}
                     </button>
                   </div>
                 </div>
